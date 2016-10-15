@@ -21,13 +21,10 @@ try {
 		echo '<p>';
 		for ($i = 0; $i < $newProducts; $i++) {
 			$stmt = $db->prepare('INSERT INTO product(serial_number, name, production_date) VALUES(:serial_number, :name, :production_date);');
-			$serial = sha1(time() . rand());
 			$name =  $productNames[array_rand($productNames)] . ' ' . rand(1, 10000);
-			$date = date("Y-m-d", rand(0, time()));
 			$stmt->bindParam(':serial_number', $serial);
 			$stmt->bindParam(':name', $name);
 			$stmt->bindParam(':production_date', $date);
-			$stmt->execute();
 			if (0 == $i % 1000) {
 				echo '. ';
 				ob_flush(); flush();
