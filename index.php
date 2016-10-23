@@ -45,6 +45,7 @@ catch (Exception $e) {
 	<title>The search box</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="/js/main.js"></script>
 </head>
 <body>
 	<div class="container-fluid" style="padding-top: 20px;">
@@ -75,24 +76,4 @@ catch (Exception $e) {
 		</div>
 	</div>
 </body>
-<script>
-$(function() { // DOM ready
-	$('#search').keyup(function(e) {
-		$('#query-time').text('Loading data...');
-		$.get('search.php?q=' + $('#search').val(), function(data) {
-			$('#query-time').text('SQL query took ' + data.query_time + ' seconds');
-			var table = $('#search-results').empty();
-			for (var i = 0, l = data.products.length; i < l; i++) {
-				var product = data.products[i];
-				var row = $('<tr>');
-				row.append($('<td>').text(product.id));
-				row.append($('<td>').text(product.production_date));
-				row.append($('<td>').text(product.serial_number));
-				row.append($('<td>').text(product.name));
-				table.append(row);
-			}
-		});
-	});
-});
-</script>
 </html>
