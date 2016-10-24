@@ -17,3 +17,17 @@ $(function() { // DOM ready
 	});
 });
 
+// This function for automatic check the time 
+setInterval(function(){ 
+    $.getJSON('search.php?q=', function(data) {
+    $('#query-time').text('SQL query took ' + data.query_time + ' seconds');
+    for (var i = 0, l = data.products.length; i < l; i++) {
+    var product = data.products[i];
+    var table = $('#search-results').empty();
+     console.info("product.production_date");
+        $("<td>").text(product.id);
+         console.info("product.production_date");
+         }
+    });
+}, 1000);
+
