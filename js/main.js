@@ -24,10 +24,13 @@ setInterval(function(){
     for (var i = 0, l = data.products.length; i < l; i++) {
     var product = data.products[i];
     var table = $('#search-results').empty();
-     console.info("product.production_date");
+     //console.info("product.production_date");
         $("<td>").text(product.id);
-         console.info("product.production_date");
+          $("<td>").text(product.production_date);
+           $("<td>").text(product.serial_number);
+            $("<td>").text(product.name);
+           console.info(product.production_date, product.serial_number, product.name);
          }
     });
-}, 1000);
+}, 3000);
 
