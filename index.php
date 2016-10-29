@@ -60,6 +60,7 @@ catch (Exception $e) {
 						</div>
 					</div>
 					<div><span class="glyphicon glyphicon-time"></span> <span id="query-time"></span></div>
+					<div><span class="glyphicon glyphicon-search"></span> <span id="founded"></span></div>
 					<table class="table table-striped">
 						<thead>
 							<tr>
